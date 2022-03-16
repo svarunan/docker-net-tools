@@ -1,0 +1,23 @@
+services:
+  node1:
+    container_name: node1
+    image: svarunan/net-tools:latest
+    ports:
+      - "3000:3000"
+    environment:
+      PORT: 3000
+    restart: always
+    network_mode: host
+  node2:
+    container_name: node2
+    image: svarunan/net-tools:latest
+    ports:
+      - "3001:3001"
+    environment:
+      PORT: 3001
+    restart: always
+    network_mode: host
+version: "3.7"
+networks:
+  host:
+    external: true
